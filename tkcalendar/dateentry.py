@@ -248,11 +248,14 @@ class DateEntry(ttk.Entry):
     def _on_focus_out_cal(self, event):
         """Withdraw drop-down calendar when it looses focus."""
         if self.focus_get() is not None:
-            if self.focus_get() == self:
+            focus = self.focus_get()
+            if focus == self:
                 x, y = event.x, event.y
                 if (type(x) != int or type(y) != int or self.identify(x, y) != self._downarrow_name):
                     self._top_cal.withdraw()
                     self.state(['!pressed'])
+            elif str(focus).startswith(str(self._top_cal)):
+                pass  # focus is within our own calendar toplevel, ignore
             else:
                 self._top_cal.withdraw()
                 self.state(['!pressed'])
