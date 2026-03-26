@@ -1,5 +1,5 @@
 ##########
-tkcalendar
+tkcalendar (fixed)
 ##########
 
 |Release| |Travis| |Appveyor| |Codecov| |Windows| |Linux| |Mac| |License| |Doc|
